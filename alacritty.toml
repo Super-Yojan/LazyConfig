@@ -1,0 +1,49 @@
+# Configuration for Alacritty, the GPU terminal emulator.
+
+# Colors (Gruvbox theme)
+[colors]
+primary.background = "0x282828" # Gruvbox background color
+primary.foreground = "0xebdbb2" # Gruvbox foreground color (text color)
+
+# Normal colors
+[colors.normal]
+black   = "0x282828" # Gruvbox black color
+red     = "0xcc241d" # Gruvbox red color
+green   = "0x98971a" # Gruvbox green color
+yellow  = "0xd79921" # Gruvbox yellow color
+blue    = "0x458588" # Gruvbox blue color
+magenta = "0xb16286" # Gruvbox magenta color
+cyan    = "0x689d6a" # Gruvbox cyan color
+white   = "0xa89984" # Gruvbox white color
+
+# Bright colors
+[colors.bright]
+black   = "0x928374" # Gruvbox bright black color (gray)
+red     = "0xfb4934" # Gruvbox bright red color
+green   = "0xb8bb26" # Gruvbox bright green color
+yellow  = "0xfabd2f" # Gruvbox bright yellow color
+blue    = "0x83a598" # Gruvbox bright blue color
+magenta = "0xd3869b" # Gruvbox bright magenta color
+cyan    = "0x8ec07c" # Gruvbox bright cyan color
+white   = "0xebdbb2" # Gruvbox bright white color
+
+# Font configuration
+[font]
+normal.family = "Monaspace Neon" # Replace with your preferred font
+normal.style  = "Regular"
+bold.family   = "Monaspace Neon"
+bold.style    = "Bold"
+italic.family = "Monaspace Neon"
+italic.style  = "Italic"
+
+# Window
+[window]
+padding.x = 2
+padding.y = 2
+dynamic_title = true
+
+# Scrolling
+[scrolling]
+history = 10000
+multiplier = 3
+
