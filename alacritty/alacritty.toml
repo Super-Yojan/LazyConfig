@@ -1,0 +1,28 @@
+# Modus Themes for Alacritty
+# Auto generated with https://github.com/miikanissi/modus-themes.nvim/blob/master/lua/modus-themes/extras/alacritty.lua
+
+
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+# Font configuration
+[font]
+normal.family = "MonaspiceAr NF" # Replace with your preferred font
+normal.style  = "Regular"
+bold.family   = "MonaspiceAr NF"
+bold.style    = "Bold"
+italic.family = "Monaspace Neon"
+italic.style  = "Italic"
+
+# Window
+[window]
+padding.x = 2
+padding.y = 2
+dynamic_title = true
+
+# Scrolling
+[scrolling]
+history = 10000
+multiplier = 3
+

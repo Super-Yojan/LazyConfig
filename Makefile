@@ -9,14 +9,18 @@ bashrc:
 	echo "alias vim=nvim" >> ~/.bashrc
 
 alacrity:
-	mkdir -p ~/.config/alacritty/
-	ln -s $(shell pwd)/alacritty.toml ~/.config/alacritty/
+	rm -rf ~/.config/alacritty/
+	ln -s $(shell pwd)/alacritty ~/.config/alacritty
+
+fish:
+	ln -s $(shell pwd)/fish ~/.config/fish
 
 deps-ubuntu:
 	# Ubuntu
-	sudo apt install fzf -y
+	sudo apt install fzf fish -y
 	git clone git@github.com:githubnext/monaspace.git
 	(cd monaspace && bash util/install_linux.sh)
 	rm -rf monaspace
 
+.PHONY: fish
 
