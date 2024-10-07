@@ -20,6 +20,7 @@ italic.style  = "Italic"
 padding.x = 2
 padding.y = 2
 dynamic_title = true
+opacity=0.95
 
 # Scrolling
 [scrolling]

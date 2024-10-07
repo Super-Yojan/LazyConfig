@@ -13,13 +13,24 @@ return {
     config = true,
   },
 
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {},
+  },
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "kanagawa-wave",
     },
   },
 }
