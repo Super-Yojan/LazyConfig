@@ -13,6 +13,7 @@ alacrity:
 	ln -s $(shell pwd)/alacritty ~/.config/alacritty
 
 fish:
+	rm -rf ~/.config/fish
 	ln -s $(shell pwd)/fish ~/.config/fish
 
 deps-ubuntu:
@@ -22,5 +23,5 @@ deps-ubuntu:
 	(cd monaspace && bash util/install_linux.sh)
 	rm -rf monaspace
 
-.PHONY: fish
+.PHONY: fish nvim
 

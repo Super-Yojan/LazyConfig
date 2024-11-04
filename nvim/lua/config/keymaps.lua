@@ -10,6 +10,7 @@ map("n", "<C-h>", "<cmd>NvimTmuxNavigateLeft<cr>", { desc = "Tmux Left" })
 map("n", "<C-j>", "<cmd>NvimTmuxNavigateDown<cr>", { desc = "Tmux Down" })
 map("n", "<C-k>", "<cmd>NvimTmuxNavigateUp<cr>", { desc = "Tmux Up" })
 map("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<cr>", { desc = "Tmux Right" })
+map("n", "<leader>-", "<cmd>Oil --float<cr>", { desc = "Tmux Right" })
 
 -- set shorter name for keymap function
 local kmap = vim.keymap.set
