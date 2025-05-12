@@ -25,12 +25,12 @@ return {
   },
 
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
+  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
   -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-dragon",
+      colorscheme = "gruvbox",
     },
   },
 }
