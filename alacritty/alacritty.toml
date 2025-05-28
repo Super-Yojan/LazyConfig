@@ -3,27 +3,29 @@
 
 
 import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+    "~/.config/alacritty/themes/themes/github_light.toml"
 ]
 
 # Font configuration
 [font]
-normal.family = "MonaspiceAr NF" # Replace with your preferred font
+normal.family = "FiraCode Nerd Font" # Replace with your preferred font
 normal.style  = "Regular"
-bold.family   = "MonaspiceAr NF"
+bold.family   = "FiraCode Nerd Font"
 bold.style    = "Bold"
-italic.family = "Monaspace Neon"
+italic.family = "FiraCode Nerd Font"
 italic.style  = "Italic"
 
 # Window
 [window]
-padding.x = 2
-padding.y = 2
+padding.x = 0
+padding.y = 0
 dynamic_title = true
-opacity=0.95
+opacity=1
 
 # Scrolling
 [scrolling]
 history = 10000
 multiplier = 3
 
+[shell]
+program="/bin/nu"

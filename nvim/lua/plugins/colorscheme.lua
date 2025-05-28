@@ -26,11 +26,13 @@ return {
 
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
+
+  { 'projekt0n/github-nvim-theme' },
   -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "github_light",
     },
   },
 }
