@@ -27,12 +27,19 @@ return {
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 
-  { 'projekt0n/github-nvim-theme' },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
+
+  { "projekt0n/github-nvim-theme" },
   -- Configure LazyVim to load catppuccin
+  --
+  --
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_light",
+      colorscheme = "onedark",
     },
   },
 }
