@@ -34,3 +34,39 @@ end)
 kmap({ "n", "v", "i" }, "<F8>", function()
   require("knap").forward_jump()
 end)
+
+vim.keymap.set("n", "<leader>qp", ":QuartoPreview<CR>", { desc = "Quarto Preview (Live Browser)" })
+vim.keymap.set("n", "<leader>qr", function()
+  -- This mimics the Org-mode "Ctrl-c Ctrl-c" to run a block
+  require("quarto").run_cell()
+end, { desc = "Quarto Run Cell" })
+
+-- Custom PhD Project Scaffolder
+vim.keymap.set("n", "<leader>rp", function()
+  local name = vim.fn.input("Experiment Name: ")
+  if name == "" then
+    return
+  end
+
+  local dir = vim.fn.getcwd() .. "/" .. name
+  vim.fn.mkdir(dir .. "/data", "p")
+  vim.fn.mkdir(dir .. "/scripts", "p")
+
+  local template = {
+    "---",
+    "title: 'GMU Research: " .. name .. "'",
+    "format: html",
+    "---",
+    "",
+    "## Theory (Control/DSP)",
+    "$$ H(s) = \\dots $$",
+    "",
+    "## Implementation (Rust)",
+    "```{rust}",
+    "// Robotics logic here",
+    "```",
+  }
+
+  vim.fn.writefile(template, dir .. "/notes.qmd")
+  vim.cmd("edit " .. dir .. "/notes.qmd")
+end, { desc = "Research: New Experiment" })
