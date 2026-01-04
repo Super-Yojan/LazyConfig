@@ -1,70 +1,105 @@
-# 💤 LazyConfig
-
+# 💤 LazyConfig | The Industrial Futurist
 
 ![Configuration Picture](./pictures/ConfigImage.png)
 
-A curated collection of dotfiles and configurations for a productive development environment on macOS (and Linux). Built around **Neovim (LazyVim)**, **Fish shell**, and **Aerospace**.
+A comprehensive "Operating System" for high-performance engineering. Built on **Neovim**, **Fish**, and **WezTerm**, optimized for robotics research, control theory, and systems programming.
+
+**Philosophy:** Signal-to-Noise Ratio (SNR).
+The interface eliminates decoration. It prioritizes data clarity (White) and critical action (Red) against an absolute Void (#161616).
 
 ## 🚀 Quick Start
 
-This repository uses [just](https://github.com/casey/just) to manage configurations.
+This repository uses [just](https://github.com/casey/just) to manage configurations via symlinks.
 
 ### 1. Prerequisites
-
-Ensure you have `just` installed:
-- **macOS**: `brew install just`
-- **Linux**: `sudo apt install just` (or via your package manager)
+- **macOS**: `brew install just wezterm fish neovim sioyek tectonic`
+- **Linux**: Install via your package manager.
 
 ### 2. Installation
-
-Clone the repository and run the setup:
+Clone the repository and inject the system:
 
 ```bash
-git clone https://github.com/yojan/LazyConfig.git
+git clone [https://github.com/yojan/LazyConfig.git](https://github.com/yojan/LazyConfig.git)
 cd LazyConfig
 just all
+
 ```
 
-*Note: This will symlink the configurations to your `~/.config` directory. It will `rm -rf` existing configs in those paths, so back them up first if needed.*
+*Warning: This effectively wipes your existing `~/.config` for the managed tools. Backup your data.*
 
-## 🛠️ Components
+## 🛠️ The Stack
 
-| Category | Tool | Description |
-| :--- | :--- | :--- |
-| **Editor** | [Neovim](https://neovim.io/) | Powered by [LazyVim](https://www.lazyvim.org/) with Rust and Python extras. |
-| **Shell** | [Fish](https://fishshell.com/) | Interactive shell with Starship prompt and Zoxide navigation. |
-| **Terminal** | [Alacritty](https://alacritty.org/) / [WezTerm](https://wezfurlong.org/wezterm/) | Modern, GPU-accelerated terminal emulators. |
-| **Multiplexer** | [Zellij](https://zellij.dev/) / [Tmux](https://github.com/tmux/tmux) | Workspace management with custom sessionizer. |
-| **Window Manager** | [Aerospace](https://github.com/nikitabobko/AeroSpace) | i3-like tiling window manager for macOS. |
-| **CLI Tools** | `eza`, `bat`, `fzf`, `jj` | Modern replacements for standard Unix tools. |
+| Category | Tool | Configuration Strategy |
+| --- | --- | --- |
+| **Terminal / Mux** | [WezTerm](https://wezfurlong.org/wezterm/) | "Headless" server mode. Replaces Tmux/Zellij entirely. Pure Lua config. |
+| **Editor** | [Neovim](https://neovim.io/) | Custom **LazyVim** build. Image rendering via **image.nvim** (Kitty backend). |
+| **Shell** | [Fish](https://fishshell.com/) | Strict **eza** coloring (Grey metadata, Red binaries). |
+| **PDF / Research** | [Sioyek](https://sioyek.info/) | Custom "Blueprint" mode (Inverted High-Contrast). Vim keybindings. |
+| **LaTeX** | [VimTeX](https://github.com/lervag/vimtex) | Automated build pipeline using **Tectonic** (Rust) or **XeLaTeX**. |
+| **Browser** | [Zen](https://zen-browser.app/) | Minimalist Firefox fork + **Tridactyl** for vim-navigation. |
+| **WM** | [Aerospace](https://github.com/nikitabobko/AeroSpace) | Tiling window manager for macOS (i3-style). |
 
-## 📁 Structure
+## ⌨️ Control Systems (Key Bindings)
 
-- `nvim/`: Neovim configuration (LazyVim).
-- `fish/`: Shell configuration, aliases, and functions.
-- `zellij/`: Layouts and configuration for Zellij.
-- `alacritty/` & `wezterm/`: Terminal aesthetics and behavior.
-- `.aerospace.toml`: Tiling window management rules.
-- `scripts/`: Custom utilities like `tmux-sessionizer`.
-- `zed/`: Settings for the Zed editor.
+The system relies on modal layers to manage windows and data.
 
-## ⌨️ Key Workflows
+### 1. Window Management (WezTerm)
 
-- **Terminal Navigation**: Use `z` (zoxide) to jump to directories.
-- **Session Management**:
-    - **Tmux**: `Ctrl + f` launches the `tmux-sessionizer` to quickly switch between projects.
-    - **Zellij**: `Ctrl + w` runs a custom `zjs` command in a floating pane.
-- **Editor**: Standard LazyVim keybindings. Custom plugins include `obsidian.nvim`, `quarto-nvim`, and `gitsigns`.
-- **Window Management**: Managed via Aerospace (see `.aerospace.toml` for bindings).
+*Trigger Leader: `Ctrl + Space*`
 
-## 🎨 Theming
+| Command | Action |
+| --- | --- |
+| `Leader` + `\` | Split Horizontal |
+| `Leader` + `-` | Split Vertical |
+| `Leader` + `h/j/k/l` | Move Focus (Vim Style) |
+| `Leader` + `w` | Workspace/Session Manager |
+| `Leader` + `$` | Rename Current Session |
+| `Leader` + `z` | Toggle Zoom (Fullscreen Pane) |
 
-- **General**: Most tools use **Catppuccin Mocha** for a consistent, high-contrast aesthetic.
-- **Zellij**: Custom **"Industrial Futurist"** theme (Oxocarbon-based with Red accents).
-- **Fish**: Custom `EZA_COLORS` for a clean, semantic directory listing.
+### 2. Research Workflow (Neovim + Sioyek)
+
+*Trigger Leader: `Space*`
+
+| Command | Action |
+| --- | --- |
+| `<Leader>l` | **Compile LaTeX** (Continuous Mode) |
+| `<Leader>P` | **Preview PDF** (Opens Sioyek) |
+| `<Leader>lx` | **Clean Artifacts** (.aux, .log cleanup) |
+| `<Leader>p` | **Equation Popup** (Nabla) |
+| `i` (in Sioyek) | **Inverse Search** (Jump to code line) |
+| `F8` (in Sioyek) | Toggle Color Mode (Blueprint <-> Original) |
+
+## 🎨 Visual Identity: "The Void"
+
+This configuration enforces a strict strict color axiom across all tools:
+
+* **Background:** `#161616` (The Void)
+* **Foreground:** `#f2f4f8` (Signal White)
+* **Critical/Action:** `#FF0000` (Safety Red)
+* **Structure:** `#333333` (Grid/Borders)
+
+### Distinctive Features
+
+* **Eza (ls):** File metadata is pushed to dark grey to reduce visual noise. Executables are highlighted in Red.
+* **Sioyek:** Automatically inverts academic papers into the dark "Blueprint" theme for reduced eye strain.
+* **WezTerm:** No title bars. No tabs (unless active). The status bar simulates a hardware interface.
+
+## 📁 Repository Structure
+
+```text
+├── nvim/             # LazyVim + Custom Plugins (Image, Nabla, VimTeX)
+├── fish/             # Shell config & Abbreviated aliases
+├── wezterm/          # Lua config for Muxing & Appearance
+├── sioyek/           # PDF Viewer prefs & keys
+├── aerospace/        # Window Manager rules
+├── tridactyl/        # Browser styling & bindings
+└── justfile          # Deployment script
+
+```
 
 ## 🤝 Acknowledgments
 
-- [LazyVim](https://github.com/LazyVim/LazyVim) for the incredible Neovim base.
-- [Folke](https://github.com/folke) for the amazing plugins.
-- [Catppuccin](https://github.com/catppuccin/catppuccin) for the colors.
+* **LazyVim** for the robust editor foundation.
+* **Wez Furlong** for the terminal that made multiplexers obsolete.
+* **The Rust Community** for `eza`, `tectonic`, and `bat`.
+

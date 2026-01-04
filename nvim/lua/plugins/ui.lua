@@ -5,11 +5,6 @@ return {
     opts = {
       processor = "magick_cli",
     },
-    config = function()
-      require("image").setup({
-        backend = "sixel",
-      })
-    end,
   },
 
   -- You also need this to install the lua magick binding automatically
