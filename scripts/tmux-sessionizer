@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/git ~/Documents '~/OneDrive - George Mason University - O365 Production/College/' -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected=$(find ~/git ~/Academy ~/Research ~/Creative '~/OneDrive - George Mason University - O365 Production/College/' -mindepth 1 -maxdepth 2 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
