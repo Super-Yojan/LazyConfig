@@ -1,0 +1,110 @@
+# =========================================================
+#  AEROSPACE CONFIGURATION | INDUSTRIAL FUTURIST
+# =========================================================
+
+# 1. GLOBAL BEHAVIOR
+# ---------------------------------------------------------
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# 2. GAPS (The Void)
+# ---------------------------------------------------------
+[gaps]
+inner.horizontal = 12
+inner.vertical   = 12
+outer.left       = 12
+outer.bottom     = 12
+outer.top        = 12
+outer.right      = 12
+
+# 3. MONITOR ASSIGNMENT (The Separation of Concerns)
+# ---------------------------------------------------------
+[workspace-to-monitor-force-assignment]
+1 = 'main'      # WezTerm (Code)
+2 = 'main'      # Terminal 2
+3 = 'main'      # Debug
+4 = 'main'      # Extra
+5 = 'secondary' # Chrome (Web)
+6 = 'secondary' # Chat
+7 = 'secondary' # Music
+8 = 'secondary' # OBS
+
+# 4. KEYBINDINGS
+# ---------------------------------------------------------
+[mode.main.binding]
+
+# Launchers
+alt-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-b = 'exec-and-forget open -a "Google Chrome"'
+
+# Focus Movement (Vim Style)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move Windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Monitor Navigation
+alt-m = 'focus-monitor next'
+alt-shift-m = 'focus-monitor prev'
+alt-shift-o = 'move-node-to-monitor next' # Throw window to other screen
+
+# Resize & Layout
+alt-r = 'mode resize'
+alt-slash = 'layout tiles horizontal vertical'
+alt-shift-q = 'close' # Quit Window
+alt-shift-f = 'layout tiling floating'
+
+# Workspaces
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace j'
+
+alt-tab = 'workspace-back-and-forth'
+alt-shift-c = 'reload-config'
+
+# 5. RESIZE MODE
+# ---------------------------------------------------------
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+# 6. AUTOMATION
+# ---------------------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.SystemSettings'
+run = 'layout floating'

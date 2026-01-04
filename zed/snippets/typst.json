@@ -1,0 +1,19 @@
+{
+  // Each snippet must have a name and body, but the prefix and description are optional.
+  // The prefix is used to trigger the snippet, but when omitted then the name is used.
+  // Use placeholders like $1, $2 or ${1:defaultValue} to define tab stops.
+  // The $0 determines the final cursor position.
+  // Placeholders with the same value are linked.
+  "Figure": {
+    "prefix": "fig",
+    "body": ["#figure(image(\"${1}\"))", "$0"],
+    "description": "Adds a Figure"
+  },
+  "Plotting": {
+    "prefix": "plot",
+    "body": [
+      "#lq.diagram(width: 12cm,\nheight: 6cm,\ntitle: [${1}],\nxlabel: [${2}],\nylabel: [${3}],\nylim: (${4}, ${5}),\n${6})"
+    ],
+    "description": "Adds a Plot"
+  }
+}

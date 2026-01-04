@@ -1,0 +1,76 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // --- FILES & BUFFERS ---
+      "space f f": "file_finder::Toggle",
+      "space f s": "workspace::Save",
+      "space b b": "tab_switcher::Toggle",
+      "space b k": "pane::CloseActiveItem",
+      "space [": "pane::ActivatePrevItem",
+      "space ]": "pane::ActivateNextItem",
+
+      // --- PROJECTS ---
+      "space p p": "projects::OpenRecent",
+      "space p f": "file_finder::Toggle",
+      "space p s": "pane::DeploySearch",
+      "space p S": "workspace::SaveAll",
+
+      // --- SEARCH ---
+      "space s s": "buffer_search::Deploy",
+      "space s p": "pane::DeploySearch",
+      "space s f": "file_finder::Toggle",
+
+      // --- WINDOWS (SPLITS) ---
+      // FIXED: Use specific directional actions
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w l": "workspace::ActivatePaneRight",
+      "space w k": "workspace::ActivatePaneUp",
+      "space w j": "workspace::ActivatePaneDown",
+
+      "space w s": "pane::SplitDown",
+      "space w v": "pane::SplitRight",
+      "space w d": "pane::CloseActiveItem",
+
+      // FIXED: Correct namespace for Zoom
+      "space w m": "workspace::ToggleZoom",
+
+      // --- CODE / LSP ---
+      "space c r": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space c f": "editor::Format",
+      "space c g d": "editor::GoToDefinition",
+      "space c g t": "editor::GoToTypeDefinition",
+      "space c g i": "editor::GoToImplementation",
+      "space c g r": "editor::FindAllReferences",
+      "space c s": "outline::Toggle",
+      "space c d": "editor::Hover",
+      "space c e": "diagnostics::Deploy",
+
+      // --- TERMINAL ---
+      "space t t": "workspace::ToggleBottomDock",
+
+      // --- GIT ---
+      "space g g": "workspace::ToggleRightDock",
+
+      // --- FILE TREE ---
+      "space e": "project_panel::ToggleFocus",
+
+      // --- VIEW ---
+      // FIXED: Use Centered Layout for "Zen"
+      "space v z": "workspace::ToggleCenteredLayout",
+      "space v n": "editor::ToggleLineNumbers",
+
+      // --- OTHER ---
+      "space /": "editor::ToggleComments",
+      // FIXED: correct action for Quit
+      "space q q": "zed::Quit"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space": null
+    }
+  }
+]

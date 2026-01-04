@@ -1,0 +1,92 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "red", // Force the Apple logo to be Brand Red
+      "2": "red"
+    },
+    "padding": {
+      "top": 2,
+      "left": 2,
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "white", // The labels (OS, Host, etc)
+      "title": "red" // Your username
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "key": "SYSTEM",
+      "keyColor": "red"
+    },
+    {
+      "type": "host",
+      "key": "MACHINE",
+      "keyColor": "white"
+    },
+    {
+      "type": "kernel",
+      "key": "KERNEL ",
+      "keyColor": "white"
+    },
+    {
+      "type": "uptime",
+      "key": "UPTIME ",
+      "keyColor": "white"
+    },
+    {
+      "type": "packages",
+      "key": "PKGS   ",
+      "keyColor": "white"
+    },
+    {
+      "type": "shell",
+      "key": "SHELL  ",
+      "keyColor": "white"
+    },
+    {
+      "type": "wm",
+      "key": "WINDOW ",
+      "keyColor": "white"
+    },
+    {
+      "type": "terminal",
+      "key": "TERM   ",
+      "keyColor": "white"
+    },
+    {
+      "type": "cpu",
+      "key": "CPU    ",
+      "keyColor": "white"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU    ",
+      "keyColor": "white"
+    },
+    {
+      "type": "memory",
+      "key": "MEMORY ",
+      "keyColor": "white"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "block": {
+        "range": [
+          1,
+          7
+        ] // Show standard colors to prove the theme works
+      }
+    }
+  ]
+}

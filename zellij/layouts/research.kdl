@@ -1,0 +1,14 @@
+layout {
+    tab name="Writing" focus=true {
+        pane edit="main.tex" // Opens your Blimp paper
+    }
+    tab name="Simulations" {
+        pane split_direction="vertical" {
+            pane name="Zenoh Router" command="zenohd"
+            pane name="Robot Node" command="cargo" { args "run"; }
+        }
+    }
+    tab name="Notes" {
+        pane edit="literature_review.md"
+    }
+}

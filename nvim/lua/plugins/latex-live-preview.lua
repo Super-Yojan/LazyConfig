@@ -1,5 +1,5 @@
 return {
-  -- Typst Preview (Optimized for lazy loading)
+  -- 1. Typst Preview (Unchanged)
   {
     "chomosuke/typst-preview.nvim",
     ft = "typst",
@@ -7,29 +7,55 @@ return {
     opts = {},
   },
 
-  -- Knap (External previewer)
+  -- 2. VimTeX (Sioyek + XeLaTeX)
   {
-    "frabjous/knap",
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      -- VIEWER: Sioyek
+      vim.g.vimtex_view_method = "sioyek"
+
+      -- COMPILER: Use latexmk
+      vim.g.vimtex_compiler_method = "latexmk"
+
+      -- ENGINE: Force XeLaTeX (Required for fontspec/Monaspace fonts)
+      vim.g.vimtex_compiler_latexmk = {
+        options = {
+          "-xelatex",
+          "-file-line-error",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+        },
+      }
+
+      -- CLEANLINESS: Extensions to remove with :VimtexClean
+      vim.g.vimtex_clean_enabled = 1
+      vim.g.vimtex_clean_additional_extensions = {
+        "aux",
+        "log",
+        "out",
+        "toc",
+        "fls",
+        "fdb_latexmk",
+        "synctex.gz",
+        "xdv",
+      }
+
+      -- UI Settings
+      vim.g.vimtex_quickfix_mode = 0
+    end,
     keys = {
-      -- Example: F5 to toggle live preview
-      {
-        "<F5>",
-        function()
-          require("knap").process_once()
-        end,
-        desc = "Knap Process Once",
-      },
-      {
-        "<F6>",
-        function()
-          require("knap").toggle_autopreviewing()
-        end,
-        desc = "Knap Toggle Auto",
-      },
+      -- MAPPINGS
+      -- <leader>l : Compile (Continuous Mode)
+      -- <leader>P : Preview (Open Sioyek)
+      -- <leader>lx: Clean aux files
+      { "<leader>l", "<cmd>VimtexCompile<cr>", desc = "VimTeX: Compile" },
+      { "<leader>lp", "<cmd>VimtexView<cr>", desc = "VimTeX: Preview PDF" },
+      { "<leader>lx", "<cmd>VimtexClean<cr>", desc = "VimTeX: Clean Aux Files" },
     },
   },
 
-  -- Nabla (LaTeX equations in buffer)
+  -- 3. Nabla (Unchanged)
   {
     "jbyuki/nabla.nvim",
     keys = {
@@ -49,15 +75,11 @@ return {
       },
     },
     config = function()
-      -- Automatically trigger virtual text when you open a file
-      require("nabla").enable_virt({
-        autogen = true,
-        silent = true, -- Set to true to avoid messages on every save
-      })
+      require("nabla").enable_virt({ autogen = true, silent = true })
     end,
   },
 
-  -- Global Treesitter config (Move this out if you already have it elsewhere)
+  -- 4. Treesitter (Unchanged)
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

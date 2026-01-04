@@ -1,0 +1,15 @@
+layout {
+    // 1. Place the status bar plugin at the top
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+
+    // 2. The 'edit' pane is where your terminal/editor lives
+    // 'focus=true' ensures your cursor starts here
+    pane focus=true
+
+    // 3. (Optional) If you want the tab bar at the bottom instead
+    // pane size=1 borderless=true {
+    //     plugin location="zellij:tab-bar"
+    // }
+}

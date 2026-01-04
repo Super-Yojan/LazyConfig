@@ -1,0 +1,241 @@
+# =========================================================
+#  INDUSTRIAL FUTURIST | STARSHIP CONFIG
+#  Palette: Red (#FF0000) | White (#f2f4f8) | Void (#161616)
+# =========================================================
+
+add_newline = true
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+# 1. LAYOUT: "Control Panel" Style
+# Top Line: Context (Shell, Git, Metrics)
+# Bottom Line: Input Prompt
+format = """
+$nix_shell\
+$container\
+$sudo\
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$cmd_duration\
+$jobs\
+$time\
+$battery\
+$line_break\
+$shlvl\
+$shell\
+$character"""
+
+# Right side: Toolchains (Only show when present)
+right_format = """
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$kubernetes\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$crystal\
+$custom\
+$status\
+$os"""
+
+# =========================================================
+#  CORE UI ELEMENTS
+# =========================================================
+
+[fill]
+symbol = ' '
+
+[character]
+# The "Input" Indicator
+success_symbol = "[➜](bold #f2f4f8)"
+error_symbol = "[✖](bold #FF0000)"
+vimcmd_symbol = "[N](bold #525252)"
+vimcmd_replace_one_symbol = "[R](bold #FF0000)"
+vimcmd_replace_symbol = "[R](bold #FF0000)"
+vimcmd_visual_symbol = "[V](bold #FF0000)"
+
+[directory]
+# White path, Red lock if read-only
+style = "bold #f2f4f8"
+read_only = " 🔒"
+read_only_style = "bold #FF0000"
+truncation_length = 3
+truncation_symbol = "../"
+home_symbol = "~"
+
+[cmd_duration]
+# Only shows if command took > 2s
+min_time = 2000
+format = "[took $duration]($style)"
+style = "italic #525252"
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold #FF0000"
+symbol = "ROOT "
+disabled = false
+
+[jobs]
+symbol = "⚙ "
+style = "bold #FF0000"
+format = "[$symbol$number]($style) "
+
+# =========================================================
+#  GIT INTEGRATION (The Red Line)
+# =========================================================
+
+[git_branch]
+symbol = " "
+style = "bold #FF0000"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold #FF0000"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "⚔️ "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[git_metrics]
+disabled = false
+added_style = "bold #525252"
+deleted_style = "bold #FF0000"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+# =========================================================
+#  ENVIRONMENTS & LANGUAGES (Unified Schematic Look)
+#  Style: Red Symbol + White Version
+# =========================================================
+
+[nix_shell]
+style = 'bold #FF0000'
+symbol = ' '
+format = '[$symbol]($style)'
+impure_msg = ''
+pure_msg = ''
+
+[rust]
+symbol = "rs"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[python]
+symbol = "py"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[nodejs]
+symbol = "node"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[golang]
+symbol = "go"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[lua]
+symbol = "lua"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[c]
+symbol = "c"
+style = "bold #f2f4f8"
+format = " [[$symbol]($style) $version](bold #FF0000)"
+
+[docker_context]
+symbol = "docker"
+style = "bold #525252"
+format = " [$symbol]($style)"
+
+[package]
+symbol = "pkg"
+style = "dimmed white"
+format = " [$symbol $version]($style)"
+
+# =========================================================
+#  SYSTEM STATS
+# =========================================================
+
+[battery]
+full_symbol = "█"
+charging_symbol = "⚡"
+discharging_symbol = "↓"
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 20
+style = "bold #FF0000" # Red when low
+
+[[battery.display]]
+threshold = 100
+style = "bold #525252" # Grey when full
+
+[time]
+disabled = false
+time_format = "%R"
+style = "dimmed white"
+format = "[$time]($style)"

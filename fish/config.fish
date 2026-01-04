@@ -5,37 +5,35 @@ end
 alias vim nvim
 alias vi nvim
 alias cat bat
+alias z zjs
 
+# 1. THEME DEFINITION
+# Metadata (Noise) -> Dark Grey (38;5;240)
+# Executables (Action) -> Critical Red (1;31)
+# Directories (Structure) -> Bold White (1;37)
+set -gx EZA_COLORS "da=38;5;240:sn=38;5;240:sb=38;5;240:ur=38;5;240:gr=38;5;240:tr=38;5;240:xx=38;5;237:di=1;37:fi=37:ex=1;31:ln=3;38;5;250:ga=37:gm=31:gi=38;5;237"
 
-set -l foreground DCD7BA normal
-set -l selection 2D4F67 brcyan
-set -l comment 727169 brblack
-set -l red C34043 red
-set -l orange FF9E64 brred
-set -l yellow C0A36E yellow
-set -l green 76946A green
-set -l purple 957FB8 magenta
-set -l cyan 7AA89F cyan
-set -l pink D27E99 brmagenta
+# ls -> Grid view
+alias ls 'eza --icons --group-directories-first'
 
-# Syntax Highlighting Colors
-set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
-set -g fish_color_keyword $pink
-set -g fish_color_quote $yellow
-set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
-set -g fish_color_error $red
-set -g fish_color_param $purple
-set -g fish_color_comment $comment
-set -g fish_color_selection --background=$selection
-set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $green
-set -g fish_color_escape $pink
-set -g fish_color_autosuggestion $comment
+# ll -> Detailed table (No User column to save space/noise)
+alias ll 'eza -l --icons --git --group-directories-first --time-style=long-iso --no-user'
 
-# Completion Pager Colors
-set -g fish_pager_color_progress $comment
-set -g fish_pager_color_prefix $cyan
-set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $comment
+# tree -> Structural blueprint view
+alias tree 'eza --tree --icons --level=2'
+
+# Eza replacements for ls
+alias la="eza -a --icons=always"
+alias lt="eza --tree --level=2 --icons=always"
+alias l="eza -lbF --icons=always"
+
+set fish_greeting ""
+
+starship init fish | source
+
+enable_transience
+
+# Initialize zoxide (replaces cd with z)
+zoxide init fish --cmd cd | source
+
+borders active_color=0xffFF0000 inactive_color=0xff161616 width=6.0 &
