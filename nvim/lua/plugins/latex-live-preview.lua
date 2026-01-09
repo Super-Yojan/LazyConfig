@@ -16,12 +16,11 @@ return {
       vim.g.vimtex_view_method = "sioyek"
 
       -- COMPILER: Use latexmk
-      vim.g.vimtex_compiler_method = "latexmk"
+      vim.g.vimtex_compiler_method = "xelatex"
 
       -- ENGINE: Force XeLaTeX (Required for fontspec/Monaspace fonts)
       vim.g.vimtex_compiler_latexmk = {
         options = {
-          "-xelatex",
           "-file-line-error",
           "-synctex=1",
           "-interaction=nonstopmode",

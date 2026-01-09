@@ -1,10 +1,11 @@
 # =========================================================
-#  INDUSTRIAL FUTURIST | STARSHIP CONFIG
-#  Palette: Red (#FF0000) | White (#f2f4f8) | Void (#161616)
+#  DR. MOSCOVIUM | STARSHIP CONFIG
+#  Palette: Blue (#4A5F7F) | Teal (#5A7A7A) | Cream (#D4C5B0) | Off-Black (#1C1C1E)
+#  Retro-Futuristic Engineering Aesthetic
 # =========================================================
 
 add_newline = true
-continuation_prompt = "[▸▹ ](dimmed white)"
+continuation_prompt = "[▸▹ ](dimmed #D4C5B0)"
 
 # 1. LAYOUT: "Control Panel" Style
 # Top Line: Context (Shell, Git, Metrics)
@@ -102,18 +103,18 @@ symbol = ' '
 
 [character]
 # The "Input" Indicator
-success_symbol = "[➜](bold #f2f4f8)"
-error_symbol = "[✖](bold #FF0000)"
-vimcmd_symbol = "[N](bold #525252)"
-vimcmd_replace_one_symbol = "[R](bold #FF0000)"
-vimcmd_replace_symbol = "[R](bold #FF0000)"
-vimcmd_visual_symbol = "[V](bold #FF0000)"
+success_symbol = "[➜](bold #D4C5B0)"
+error_symbol = "[✖](bold #B85450)"
+vimcmd_symbol = "[N](bold #8E8E93)"
+vimcmd_replace_one_symbol = "[R](bold #B85450)"
+vimcmd_replace_symbol = "[R](bold #B85450)"
+vimcmd_visual_symbol = "[V](bold #4A5F7F)"
 
 [directory]
-# White path, Red lock if read-only
-style = "bold #f2f4f8"
+# Cream path, Red lock if read-only
+style = "bold #D4C5B0"
 read_only = " 🔒"
-read_only_style = "bold #FF0000"
+read_only_style = "bold #B85450"
 truncation_length = 3
 truncation_symbol = "../"
 home_symbol = "~"
@@ -122,30 +123,30 @@ home_symbol = "~"
 # Only shows if command took > 2s
 min_time = 2000
 format = "[took $duration]($style)"
-style = "italic #525252"
+style = "italic #8E8E93"
 
 [sudo]
 format = "[$symbol]($style)"
-style = "bold #FF0000"
+style = "bold #B85450"
 symbol = "ROOT "
 disabled = false
 
 [jobs]
 symbol = "⚙ "
-style = "bold #FF0000"
+style = "bold #C17A5F"
 format = "[$symbol$number]($style) "
 
 # =========================================================
-#  GIT INTEGRATION (The Red Line)
+#  GIT INTEGRATION (The Blue Line)
 # =========================================================
 
 [git_branch]
-symbol = " "
-style = "bold #FF0000"
+symbol = " "
+style = "bold #4A5F7F"
 format = "[$symbol$branch]($style) "
 
 [git_status]
-style = "bold #FF0000"
+style = "bold #5A7A7A"
 format = '([\[$all_status$ahead_behind\]]($style) )'
 conflicted = "⚔️ "
 ahead = "⇡${count}"
@@ -160,60 +161,60 @@ deleted = "✘${count}"
 
 [git_metrics]
 disabled = false
-added_style = "bold #525252"
-deleted_style = "bold #FF0000"
+added_style = "bold #6B7456"
+deleted_style = "bold #B85450"
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 # =========================================================
 #  ENVIRONMENTS & LANGUAGES (Unified Schematic Look)
-#  Style: Red Symbol + White Version
+#  Style: Blue Symbol + Cream Version
 # =========================================================
 
 [nix_shell]
-style = 'bold #FF0000'
-symbol = ' '
+style = 'bold #4A5F7F'
+symbol = ' '
 format = '[$symbol]($style)'
 impure_msg = ''
 pure_msg = ''
 
 [rust]
 symbol = "rs"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [python]
 symbol = "py"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [nodejs]
 symbol = "node"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [golang]
 symbol = "go"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [lua]
 symbol = "lua"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [c]
 symbol = "c"
-style = "bold #f2f4f8"
-format = " [[$symbol]($style) $version](bold #FF0000)"
+style = "bold #D4C5B0"
+format = " [[$symbol]($style) $version](bold #4A5F7F)"
 
 [docker_context]
 symbol = "docker"
-style = "bold #525252"
+style = "bold #5A7A7A"
 format = " [$symbol]($style)"
 
 [package]
 symbol = "pkg"
-style = "dimmed white"
+style = "dimmed #D4C5B0"
 format = " [$symbol $version]($style)"
 
 # =========================================================
@@ -228,14 +229,28 @@ format = "[$symbol$percentage]($style) "
 
 [[battery.display]]
 threshold = 20
-style = "bold #FF0000" # Red when low
+style = "bold #B85450" # Red when low
 
 [[battery.display]]
 threshold = 100
-style = "bold #525252" # Grey when full
+style = "bold #8E8E93" # Grey when full
 
 [time]
 disabled = false
 time_format = "%R"
-style = "dimmed white"
+style = "dimmed #D4C5B0"
 format = "[$time]($style)"
+
+# =========================================================
+#  DR. MOSCOVIUM COLOR REFERENCE
+# =========================================================
+# Primary:    Blue #4A5F7F (Keywords, Git, Languages)
+# Secondary:  Teal #5A7A7A (Git Status, Docker)
+# Accent:     Red #B85450 (Errors, Warnings, Root)
+# Supporting: Rust #C17A5F (Jobs, Emphasis)
+#             Olive #6B7456 (Git Added)
+# Foreground: Cream #D4C5B0 (Text, Paths)
+#             Off-White #F2F2F7 (Highlights)
+# Background: Off-Black #1C1C1E (Not used in prompt)
+# Neutral:    Light Gray #8E8E93 (Dimmed, Inactive)
+# =========================================================

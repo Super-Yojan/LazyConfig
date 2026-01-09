@@ -19,7 +19,7 @@ This repository uses [just](https://github.com/casey/just) to manage configurati
 Clone the repository and inject the system:
 
 ```bash
-git clone [https://github.com/yojan/LazyConfig.git](https://github.com/yojan/LazyConfig.git)
+git clone [https://github.com/Super-Yojan/LazyConfig.git](https://github.com/Super-Yojan/LazyConfig.git)
 cd LazyConfig
 just all
 

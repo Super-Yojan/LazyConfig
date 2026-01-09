@@ -4,19 +4,30 @@ return {
   opts = function()
     -- 1. PALETTE: Oxocarbon + Industrial Red Override
     local colors = {
-      bg = "#161616", -- The Void
-      fg = "#f2f4f8", -- Off-White
-      yellow = "#ff7eb6", -- Oxocarbon 'Yellow' (Pinkish)
-      cyan = "#3ddbd9",
-      darkblue = "#33b1ff",
-      green = "#42be65",
-      orange = "#FF0000", -- Mapping Orange to Brand Red for alerts
-      violet = "#be95ff",
-      magenta = "#be95ff",
-      blue = "#33b1ff",
-      red = "#FF0000", -- BRAND RED (#FF0000)
-    }
+      -- Base
+      bg = "#1C1C1E", -- Off-Black (unchanged)
+      fg = "#D4C5B0", -- Muted Cream (Dr. Moscovium foreground)
 
+      -- Primary accents
+      blue = "#4A5F7F", -- Muted Blue (keywords, primary)
+      cyan = "#5A7A7A", -- Muted Teal (functions, secondary)
+      red = "#B85450", -- Muted Red (errors, warnings)
+
+      -- Supporting colors
+      yellow = "#C17A5F", -- Rust Orange (numbers, constants)
+      orange = "#C17A5F", -- Same as yellow for consistency
+      green = "#6B7456", -- Olive Green (strings, success)
+      violet = "#7A6B7F", -- Dusty Purple (preprocessor, special)
+      magenta = "#7A6B7F", -- Same as violet
+
+      -- Specific use cases
+      darkblue = "#4A5F7F", -- Same as blue for consistency
+
+      -- Neutrals (for completeness)
+      gray = "#8E8E93", -- Light Gray (comments, disabled)
+      dark_gray = "#2A2A2C", -- Dark Gray (backgrounds)
+      med_gray = "#454547", -- Medium Gray (borders)
+    }
     local conditions = {
       buffer_not_empty = function()
         return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
