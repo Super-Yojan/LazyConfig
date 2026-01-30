@@ -94,8 +94,7 @@ config.colors = moscovium
 --  2. TYPOGRAPHY
 -- =========================================================
 config.font = wezterm.font_with_fallback({
-	"Monaspace Neon",
-	"JetBrains Mono",
+	"JetBrainsMono Nerd Font Mono",
 	"Apple Color Emoji",
 })
 
@@ -106,7 +105,7 @@ config.line_height = 1.1
 -- =========================================================
 --  4. UI STRUCTURE (Minimalist)
 -- =========================================================
-config.window_decorations = "RESIZE" -- Remove title bar (macOS)
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- macOS traffic light buttons
 config.enable_tab_bar = false
 
 return config

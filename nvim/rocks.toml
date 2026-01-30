@@ -1,0 +1,192 @@
+# rocks.nvim configuration
+# Install plugins with :Rocks install <plugin>
+# Update with :Rocks update
+# Sync with :Rocks sync
+
+[rocks]
+# Core rocks.nvim plugins
+"rocks.nvim" = "2.40.2"
+"rocks-git.nvim" = "2.3.1"      # For git-based plugins not on luarocks
+"rocks-config.nvim" = "3.0.0"   # For plugin configuration
+
+# UI
+[plugins.catppuccin]
+git = "catppuccin/nvim"
+
+[plugins.lualine]
+git = "nvim-lualine/lualine.nvim"
+
+[plugins.nvim-web-devicons]
+git = "nvim-tree/nvim-web-devicons"
+
+[plugins.alpha-nvim]
+git = "goolord/alpha-nvim"
+
+[plugins.bufferline]
+git = "akinsho/bufferline.nvim"
+
+[plugins.indent-blankline]
+git = "lukas-reineke/indent-blankline.nvim"
+
+[plugins.which-key]
+git = "folke/which-key.nvim"
+
+[plugins.nvim-notify]
+git = "rcarriga/nvim-notify"
+
+[plugins.trouble]
+git = "folke/trouble.nvim"
+
+[plugins.todo-comments]
+git = "folke/todo-comments.nvim"
+
+# Editor
+[plugins.nvim-treesitter]
+git = "nvim-treesitter/nvim-treesitter"
+
+[plugins.nvim-autopairs]
+git = "windwp/nvim-autopairs"
+
+[plugins.Comment]
+git = "numToStr/Comment.nvim"
+
+[plugins.nvim-ts-context-commentstring]
+git = "JoosepAlviste/nvim-ts-context-commentstring"
+
+[plugins.nvim-surround]
+git = "kylechui/nvim-surround"
+
+[plugins.flash]
+git = "folke/flash.nvim"
+
+[plugins.nvim-ts-autotag]
+git = "windwp/nvim-ts-autotag"
+
+[plugins.nvim-colorizer]
+git = "NvChad/nvim-colorizer.lua"
+
+[plugins.oil]
+git = "stevearc/oil.nvim"
+
+[plugins.vim-tmux-navigator]
+git = "christoomey/vim-tmux-navigator"
+
+# LSP
+[plugins.nvim-lspconfig]
+git = "neovim/nvim-lspconfig"
+
+[plugins.mason]
+git = "williamboman/mason.nvim"
+
+[plugins.mason-lspconfig]
+git = "williamboman/mason-lspconfig.nvim"
+
+[plugins.conform]
+git = "stevearc/conform.nvim"
+
+[plugins.nvim-lint]
+git = "mfussenegger/nvim-lint"
+
+[plugins.fidget]
+git = "j-hui/fidget.nvim"
+
+# Completion
+[plugins.blink-cmp]
+git = "saghen/blink.cmp"
+
+[plugins.blink-compat]
+git = "saghen/blink.compat"
+
+[plugins.friendly-snippets]
+git = "rafamadriz/friendly-snippets"
+
+[plugins.cmp-nvim-lsp]
+git = "hrsh7th/cmp-nvim-lsp"
+
+# Telescope
+[plugins.telescope]
+git = "nvim-telescope/telescope.nvim"
+
+[plugins.telescope-fzf-native]
+git = "nvim-telescope/telescope-fzf-native.nvim"
+
+[plugins.telescope-bibtex]
+git = "nvim-telescope/telescope-bibtex.nvim"
+
+[plugins.plenary]
+git = "nvim-lua/plenary.nvim"
+
+# Git
+[plugins.vim-fugitive]
+git = "tpope/vim-fugitive"
+
+[plugins.gitsigns]
+git = "lewis6991/gitsigns.nvim"
+
+[plugins.git-conflict]
+git = "akinsho/git-conflict.nvim"
+
+# Flutter (may not work perfectly)
+[plugins.flutter-tools]
+git = "nvim-flutter/flutter-tools.nvim"
+
+[plugins.dressing]
+git = "stevearc/dressing.nvim"
+
+# Rust
+[plugins.rustaceanvim]
+git = "mrcjkb/rustaceanvim"
+
+[plugins.crates]
+git = "saecki/crates.nvim"
+
+# Web
+[plugins.typescript-tools]
+git = "pmizio/typescript-tools.nvim"
+
+[plugins.package-info]
+git = "vuki656/package-info.nvim"
+
+[plugins.nui]
+git = "MunifTanjim/nui.nvim"
+
+[plugins.emmet-vim]
+git = "mattn/emmet-vim"
+
+# LaTeX
+[plugins.vimtex]
+git = "lervag/vimtex"
+
+[plugins.cmp-vimtex]
+git = "micangl/cmp-vimtex"
+
+[plugins.typst-vim]
+git = "kaarmu/typst.vim"
+
+[plugins.typst-preview]
+git = "chomosuke/typst-preview.nvim"
+
+# Obsidian
+[plugins.obsidian]
+git = "epwalsh/obsidian.nvim"
+
+# Markdown
+[plugins.render-markdown]
+git = "MeanderingProgrammer/render-markdown.nvim"
+
+[plugins.quarto]
+git = "quarto-dev/quarto-nvim"
+
+[plugins.otter]
+git = "jmbuhr/otter.nvim"
+
+[plugins.markdown-preview]
+git = "iamcco/markdown-preview.nvim"
+
+# AI (optional)
+[plugins.supermaven]
+git = "supermaven-inc/supermaven-nvim"
+
+# Utilities
+[plugins.vim-repeat]
+git = "tpope/vim-repeat"

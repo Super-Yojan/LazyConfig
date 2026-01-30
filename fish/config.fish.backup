@@ -129,6 +129,3 @@ set -g fish_pager_color_selected_description 8E8E93
 #
 # NOTE: Regular files (fi) left uncolored for clarity
 # =========================================================
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc' ]; . '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc'; end
