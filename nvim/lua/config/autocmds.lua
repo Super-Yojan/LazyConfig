@@ -1,12 +1,22 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
 --
+-- Add any additional autocmds here
+-- with `vim.api.nvim_create_autocmd`
+--
+-- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
+-- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Treesitter main no longer auto-starts highlights; enable for .norg
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "quarto", "markdown" },
+  pattern = { "norg" },
   callback = function()
-    local otter = require("otter")
-    -- This "activates" the LSP for the languages you use in your PhD research
-    otter.activate({ "rust", "python", "lua" }, true, true, nil)
+    vim.wo.conceallevel = 2
+    vim.wo.concealcursor = "nc"
+    vim.wo.foldlevel = 99
+    if pcall(vim.treesitter.start) then
+      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
   end,
 })

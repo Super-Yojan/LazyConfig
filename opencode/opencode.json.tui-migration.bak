@@ -3,5 +3,7 @@
   "plugin": [
     "opencode-gemini-auth"
   ],
+  // Theme configuration
+  "theme": "opencode",
   "autoupdate": true,
 }

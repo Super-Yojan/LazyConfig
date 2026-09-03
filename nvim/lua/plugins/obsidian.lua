@@ -1,21 +1,32 @@
 return {
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  }
+  , {
   "epwalsh/obsidian.nvim",
-  version = "*",
-  lazy = true,
+  version = "*", -- recommended, use latest release instead of latest commit
+  lazy = false,
+  ft = "markdown",
+  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+  -- event = {
+  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+  --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+  --   -- refer to `:h file-pattern` for more examples
+  --   "BufReadPre path/to/my-vault/*.md",
+  --   "BufNewFile path/to/my-vault/*.md",
+  -- },
   dependencies = {
+    -- Required.
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-  },
 
-  -- 1. Keybinds (Global)
-  keys = {
-    { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New Note" },
-    { "<leader>nf", "<cmd>ObsidianQuickSwitch<cr>", desc = "Find Note (File)" },
-    { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search Note Content" },
-    { "<leader>nl", "<cmd>ObsidianLink<cr>", desc = "Link Selection", mode = "v" },
-    { "<leader>no", "<cmd>ObsidianFollowLink<cr>", desc = "Open/Create Link" },
+    -- see below for full list of optional dependencies 👇
   },
-
   opts = {
     workspaces = {
       {
@@ -24,32 +35,6 @@ return {
       },
     },
 
-    -- 2. THE FIX: Disable nvim-cmp to stop the crash
-    completion = {
-      nvim_cmp = false,
-      min_chars = 2,
-    },
-
-    -- 3. Mappings (Buffer-local, inside notes only)
-    mappings = {
-      -- Fix 'gd' to follow links instead of looking for code definitions
-      ["gd"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle checkboxes with Enter
-      ["<cr>"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-    },
-
-    note_id_func = function(title)
-      return title
-    end,
+    -- see below for full list of options 👇
   },
-}
+} }

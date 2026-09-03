@@ -8,6 +8,18 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "cli_default_open_behavior": "existing_window",
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
   "minimap": {
     "show": "always",
   },
@@ -16,6 +28,7 @@
   "buffer_line_height": "comfortable",
   "buffer_font_weight": 450.0,
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle",
   },
   "ssh_connections": [
@@ -25,9 +38,11 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/pi"],
-        },
-      ],
+          "paths": [
+            "/home/pi"
+          ]
+        }
+      ]
     },
     {
       "host": "raspberrypi.local",
@@ -35,15 +50,17 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/pi"],
-        },
-      ],
+          "paths": [
+            "/home/pi"
+          ]
+        }
+      ]
     },
     {
       "host": "raspberrypi.local",
       "username": "pi",
       "args": [],
-      "projects": [],
+      "projects": []
     },
     {
       "host": "blimp-tutorial.local",
@@ -51,9 +68,11 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/pi/main.py"],
-        },
-      ],
+          "paths": [
+            "/home/pi/main.py"
+          ]
+        }
+      ]
     },
     {
       "host": "blimp-hri-003.local",
@@ -61,10 +80,18 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/pi"],
-        },
-      ],
+          "paths": [
+            "/home/pi"
+          ]
+        }
+      ]
     },
+    {
+      "host": "shooter.local",
+      "username": "pi",
+      "args": [],
+      "projects": []
+    }
   ],
   "theme": {
     "mode": "system",
@@ -73,9 +100,6 @@
   },
   "git_panel": {
     "dock": "right",
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
   },
   "ui_font_size": 17.0,
   "buffer_font_size": 18.0,
@@ -112,11 +136,14 @@
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "dock": "left",
+    "tool_permissions": {
+      "default": "allow"
+    },
     "inline_assistant_model": {
       "provider": "google",
       "model": "gemini-2.5-pro",
     },
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini",
@@ -228,14 +255,14 @@
   // Move all panel to the right
   "project_panel": {
     "button": true,
-    "dock": "left",
+    "dock": "right",
     "git_status": true,
   },
   "outline_panel": {
     "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   // Move some unnecessary panels to the left
   "notification_panel": {

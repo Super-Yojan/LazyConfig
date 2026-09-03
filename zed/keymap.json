@@ -2,6 +2,15 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
+      "cmd-b": [
+        "action::Sequence",
+        ["workspace::Save", ["task::Spawn", { "task_name": "SwiftBuild" }]],
+      ],
+      "cmd-r": [
+        "action::Sequence",
+        ["workspace::Save", ["task::Spawn", { "task_name": "SwiftRun" }]],
+      ],
+
       // --- FILES & BUFFERS ---
       "space f f": "file_finder::Toggle",
       "space f s": "workspace::Save",
@@ -64,14 +73,14 @@
       // --- OTHER ---
       "space /": "editor::ToggleComments",
       // FIXED: correct action for Quit
-      "space q q": "zed::Quit"
-    }
+      "space q q": "zed::Quit",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space": null
-    }
+      "space": null,
+    },
   },
   {
     "context": "Terminal",
@@ -81,7 +90,7 @@
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w l": "workspace::ActivatePaneRight",
       // Optional: Allow hiding the terminal quickly
-      "ctrl-w q": "workspace::ToggleBottomDock"
-    }
-  }
+      "ctrl-w q": "workspace::ToggleBottomDock",
+    },
+  },
 ]

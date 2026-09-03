@@ -78,13 +78,6 @@ enable_transience
 zoxide init fish --cmd cd | source
 
 # =========================================================
-#  BORDERS (macOS)
-# =========================================================
-# Active window border: Muted Blue
-# Inactive window border: Off-Black
-borders active_color=0xff4A5F7F inactive_color=0xff1C1C1E width=6.0 &
-
-# =========================================================
 #  DR. MOSCOVIUM FISH COLOR SCHEME
 # =========================================================
 # Set Fish shell colors to match theme
@@ -131,4 +124,19 @@ set -g fish_pager_color_selected_description 8E8E93
 # =========================================================
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc' ]; . '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/yojan/Startups/google-cloud-sdk/path.fish.inc'
+end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+set -gx PATH $PATH $ANDROID_HOME/emulator
+set -gx PATH $PATH $ANDROID_HOME/platform-tools
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/yojan/.lmstudio/bin
+# End of LM Studio CLI section
+
