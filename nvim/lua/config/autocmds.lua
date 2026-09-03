@@ -18,5 +18,14 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
+
+    -- Remap keys that conflict with LazyVim / blink.cmp defaults
+    vim.keymap.set(
+      "n",
+      "<LocalLeader>tt",
+      "<Plug>(neorg.qol.todo-items.todo.task-cycle)",
+      { buffer = true, desc = "[neorg] Cycle Task" }
+    )
+    vim.keymap.set("n", "<LocalLeader>o", "<cmd>Neorg toc<CR>", { buffer = true, desc = "[neorg] Table of Contents" })
   end,
 })
